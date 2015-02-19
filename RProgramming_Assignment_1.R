@@ -7,10 +7,15 @@
 # the pollutant across all of the monitors, ignoring any missing values coded as 
 # NA. A prototype of the function is as follows
 
- setwd("C:/Users/jeffthatcher/Cloud Drive/RRepos/DataScience")
- 
+ setwd("C:/Users/jeffthatcher/Cloud Drive/RRepos/DataScience") 
  source("pollutantmean.r")
+ xxx <- pollutantmean("C:/Users/jeffthatcher/Cloud Drive/CourseERA/2_R_Programming/specdata/","nitrate", 70:72)
+ head(xxx)
  
- directory <- "C:/Users/jeffthatcher/Cloud Drive/CourseERA/2_R_Programming/specdata/"
+ source("complete.r")
+ yyy <- complete("C:/Users/jeffthatcher/Cloud Drive/CourseERA/2_R_Programming/specdata/", c(2, 4, 8, 10, 12))
+ head(yyy)
  
- pollutant <- "sulfate"     
+ source("corr.r")
+ zzz <- corr("C:/Users/jeffthatcher/Cloud Drive/CourseERA/2_R_Programming/specdata/", 5)
+ head(zzz) 

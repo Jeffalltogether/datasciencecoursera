@@ -1,18 +1,33 @@
 pollutantmean <- function(directory, pollutant, id = 1:332) {
-        id = 1:99
-        Values = rep(1, length(id))
-        for (d in id){
-                position = id[d]
-                fileNum = sprintf("%03d", position)
-                fileName = paste(directory, fileNum, sep = "")
-                fileNameType = paste(x, ".csv", sep = "")
-                data <- read.csv(fileNameType)
-                clData=na.omit(data)
-                Ave = mean(clData[,pollutant])
-                Values[position] = Ave
+#        directory = "C:/Users/jeffthatcher/Cloud Drive/CourseERA/2_R_Programming/specdata/"
+#        pollutant = "sulfate"
+#        id = 1:10
+        
+        if (pollutant == "sulfate"){
+                x = 2
         }
-        meanPollutant = mean(Values)
-        return(meanPollutant)
+        if (pollutant == "nitrate"){
+                x = 3
+        } 
+        sums = rep(1, length(id))
+        vLength = rep(1, length(id))
+        for (k in 1:length(id)){
+                        position = id[k]
+                        fileNum = sprintf("%03d", position)
+                        fileName = paste(directory, fileNum, sep = "")
+                        fileNameType = paste(fileName, ".csv", sep = "")
+                        data <- read.csv(fileNameType)
+                        #data <- as.vector(data)
+                        xData = data[,x]
+                        clData = na.omit(xData)
+                        vLength[k] = length(clData)
+                        sums[k] = sum(clData)
+       }
+        storeLength = sum(vLength)
+        totalsum = sum(sums)
+meanPollutant = totalsum/storeLength
+return(meanPollutant)
+}
         
         ## 'directory' is a character vector of length 1 indicating
         ## the location of the CSV files
@@ -26,4 +41,4 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         
         ## Return the mean of the pollutant across all monitors list
         ## in the 'id' vector (ignoring NA values)
-}
+
