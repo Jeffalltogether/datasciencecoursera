@@ -95,6 +95,7 @@ flag_colors <- flags[, 11:17] # This subsetting command tells R that we want all
 range()  # returns the minimum and maximum of its first argument
 unique() # returns a vector with all duplicate elements removed
 lapply(unique_vals, function(elem) elem[2]) # anonymous function embedded in the lapply function that returns the second element of each column in unique_vals
+sapply(split(mtcars$mpg, mtcars$cyl), mean) # calculate the average miles per gallon (mpg) by number of cylinders in the car (cyl)
 
 ## vapply and tapply
 vapply()                                # Whereas sapply() tries to 'guess' the correct format of the result,
@@ -118,3 +119,47 @@ tail(x, 10)
 summary()
 table(x$x)
 str() # structure of data set including variables, factors, levels, and observations
+
+## Simulation
+sample()
+sample(1:6, 4, replace = TRUE) # simulate rolling four six-sided dice
+sample(LETTERS) # permutation of the elements in the vector LETTERS
+sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7)) # assign probabilities to the values of the vector being sampled
+rbinom() #simulate a random binomial variable
+rbinom(n = 1, size = 100, prob = 0.7) # you only specify the probability of 'success' (heads/1)
+rnorm(n = x, mean = x, stdev = x)
+rpois() #poisson distribution
+replicate()
+replicate(100, rpois(5, 10))
+colMeans()
+hist()
+rexp() # exponential distribution
+rchisq() # chi-squared distribution
+rgamma() # gamma distributtion
+
+# Dates and Times
+Sys.Date() #get today's date "year - month - day"
+unclass() # to see what the variables looks like internally, for dates it's the number of days since 1970-01-01
+as.Date("1969-01-01") # reference a prior date
+Sys.time() #current date and time 
+as.POSIXlt(Sys.time())
+x$min # access the minutes
+weekdays()
+months()
+quarters()
+strptime() # converts character vectors to POSIXlt
+strptime(x, "%B %d, %Y %H:%M")
+difftime() # allows you to specify a 'units' parameter
+difftime(Sys.time(), t1, units = 'days')
+
+## Base Graphics
+# ggplot2 tutorial http://varianceexplained.org/r/teach_ggplot2_to_beginners/
+plot()
+plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
+plot(cars, main = "My Plot", sub ="My Plot Subtitle")
+plot(cars, col = 2)
+plot(cars, xlim = c(10, 15))
+plot(cars, pch = 2)
+boxplot(mpg ~ cyl, mtcars) #using a "formula" as an argument
+hist()
+hist(mtcars$mpg)
