@@ -32,11 +32,11 @@ x <- matrix(rnorm(25),nrow = 5,ncol = 5)
 solve(x)
 
 ## Generating matrix and inverse matrix functions
-setwd("C:/Users/jeffthatcher/Cloud Drive/RRepos/Assignment2/programmingassignment2")
+setwd("C:/Users/jeffthatcher/Cloud Drive/RRepos")
 source("cacheMatrix.R")
 
 
-a <- makeCacheMatrix(matrix(rnorm(25),nrow = 5,ncol = 5))
+a <- makeCacheMatrix(matrix(runif(4,1,50),2,2))
 a$get()
 a$getinverse()
 cacheSolve(a)
