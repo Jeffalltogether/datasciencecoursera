@@ -55,7 +55,6 @@ best <- function(state, outcome) {
 
         # Tie Breaker by "alphabetical"
         afresult <- fresult[order(fresult$z...2.),] #Alphabetize results data frame
-        answer <- data.frame(unlist(afresult[1,1]))
-        colnames(answer) <- c("Hospital")
-        print(answer, quote = TRUE)
+        answer <- as.character(unlist(afresult[1,1]))
+        return(answer)
 }

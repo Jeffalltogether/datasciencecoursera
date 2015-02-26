@@ -12,10 +12,6 @@
 # that the rankhospital function handles ties.
 # The function should use the following template.
 
-# setwd("C:/Users/jeffthatcher/Cloud Drive/RRepos/DataScience/ProgAssignment3")
-# outcome = "pneumonia"
-# num = "worst"
-
 rankall <- function(outcome, num = "best") {
         ## Read outcome data
         data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
@@ -81,6 +77,6 @@ rankall <- function(outcome, num = "best") {
                 
         }
 answer <- data.frame(unlist(result), states)
-colnames(answer) <- c("Hospital", "State")
+colnames(answer) <- c("hospital", "state")
 return(answer)
 }

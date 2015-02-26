@@ -64,7 +64,6 @@ rankhospital <- function(state, outcome, num = "best") {
         } else {
                 result <- c(as.list(x[as.numeric(num),2]))
         }
-answer <- data.frame(unlist(result))
-colnames(answer) <- c("Hospital")
+answer <- as.character(unlist(result))
 return(answer)
 }
