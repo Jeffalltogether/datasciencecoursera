@@ -57,6 +57,10 @@ c(foo = 11, bar = 2, norf = NA)  # a numeric vector with three named elements
 names()
 identical()
 vect[c("foo", "bar")]            # subset a vector using the names
+order()         # alphabetize or sort a data.frame, etc..
+class()
+unlist()        # coerces a list into a vector
+unique()        # returns all the unique values in a variable
 
 ## Vectors and Dataframes
 dim() # rows and columns
@@ -136,6 +140,8 @@ hist()
 rexp() # exponential distribution
 rchisq() # chi-squared distribution
 rgamma() # gamma distributtion
+set.seed() # IMPORTNAT for proper random number generation!
+qpois() # calculates the inverse of the poisson distribution, `q` works for all the sampling functions
 
 # Dates and Times
 Sys.Date() #get today's date "year - month - day"
@@ -163,3 +169,22 @@ plot(cars, pch = 2)
 boxplot(mpg ~ cyl, mtcars) #using a "formula" as an argument
 hist()
 hist(mtcars$mpg)
+
+## non-Swirl exercises but good functions to know
+# Debug
+debug()
+debugonce()  # will exit the browser after one `Q`
+traceback()
+options(error = recover) # set a global option to brows through errors
+suppressWarnings() #supresses warnings on script within `()`
+
+
+#Using the Profiler to monitor the function call stack
+Rprof() #tracks the time spent on each function 
+system.time()
+
+#Other
+invisible()
+solve() # computes the inverse of a matrix
+which() # returns the index of the vector that equals the specified value.
+which(LETTERS == "R")
