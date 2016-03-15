@@ -10,6 +10,8 @@ list.files()  # lists all files in working directory
 args()
 dir.create()
 setwd()
+setwd("./data") #
+setwd("../")   # `../` moves up one working directory
 file.create()
 file.exists()
 file.info()
