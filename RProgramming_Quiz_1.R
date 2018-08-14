@@ -13,9 +13,14 @@ data2
 #How many observations (i.e. rows) are in this data frame?
 tail(data)
 
+nrow(data)
+
 #Extract the last 2 rows of the data frame and print them 
 # to the console. What does the output look like?
 data3 <- data[152:153,]
+data3
+
+data3 <- tail(data,2)
 data3
 
 #What is the value of Ozone in the 47th row?
@@ -30,11 +35,18 @@ missingNAN<- is.nan(data$Ozone)
 as.numeric(missingNAN)
 sum(missingNAN)
 
+ozone_data <- data[,1]
+length(ozone_data[is.na(ozone_data)]
+
 #What is the mean of the Ozone column in this dataset? Exclude 
 # missing values (coded as NA) from this calculation.
 Ozone <- na.omit(data$Ozone)
 as.numeric(Ozone)
 mean(Ozone)
+
+ozone <- data[,1]       
+ozone_clean <- ozone[!is.na(ozone)]
+mean(ozone_clean)
 
 #Extract the subset of rows of the data frame where Ozone values are above 31 and Temp 
 # values are above 90. What is the mean of Solar.R in this subset?
